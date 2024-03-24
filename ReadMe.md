@@ -87,6 +87,11 @@ Username: octoAdmin
 Password: 159951
 ```
 
+### Testlerin Çalışması
+Apilerin testlerini yapmak için aşağıdaki komut terminale yazılmalıdır.
+```bash
+python manage.py test .
+```
 
 ### Management Command
 Management Command olarak tüm entry listesini güncel tarihe göre sıralayarak consola yazacak şekilde ayarlandı.
