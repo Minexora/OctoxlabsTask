@@ -87,7 +87,7 @@ Username: octoAdmin
 Password: 159951
 ```
 
-### Testlerin Çalışması
+### Testlerin Çalıştırılması
 Apilerin testlerini yapmak için aşağıdaki komut terminale yazılmalıdır.
 ```bash
 python manage.py test .
