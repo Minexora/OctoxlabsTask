@@ -1,0 +1,8 @@
+
+# Ignore dynaconf secret files
+**/.secrets.*
+**/venv
+**/.vscode
+**/__pycache__
+**/data
+**/elastic_data

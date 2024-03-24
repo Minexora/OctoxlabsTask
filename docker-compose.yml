@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  postgres_db:
+    image: postgres
+    restart: always
+    container_name: postgres_db
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=minexora
+      - POSTGRES_PASSWORD=159951
+      - POSTGRES_DB=octoxlab
+    networks:
+      - mynetwork
+
+  elasticsearch:
+    image:  docker.elastic.co/elasticsearch/elasticsearch:8.12.2
+    restart: always
+    container_name: octoxlabs01
+    ports:
+      - 9200:9200
+    environment:
+      - "discovery.type=single-node"
+      - "ES_JAVA_OPTS=-Dxpack.security.enabled=false"
+    volumes:
+      - ./elastic_data:/usr/share/elasticsearch/data
+    networks:
+      - mynetwork
+
+  web:
+    build: .
+    command: bash docker-entrypoint.sh
+    volumes:
+      - .:/code
+    depends_on:
+      - postgres_db
+      - elasticsearch
+    ports:
+      - "8000:8000"
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:

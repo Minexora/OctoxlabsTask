@@ -1,0 +1,44 @@
+dynaconf_merge = true
+
+[default]
+    Debug = true
+    jwt_access_expire_time = 5
+    jwt_refresh_expire_time = 30
+
+    [default.database]
+        POSTGRES_HOST = "localhost"
+        POSTGRES_PORT = "5432"
+        POSTGRES_CONN_MAX_AGE = 300
+
+    [default.elasticsearch]
+        ELASTICSEARCH_HOST = "localhost"
+        ELASTICSEARCH_PORT = "9200"
+
+[development]
+    Debug = true
+    jwt_access_expire_time = 5
+    jwt_refresh_expire_time = 30
+
+    [development.database]
+        POSTGRES_HOST = "localhost"
+        POSTGRES_PORT = "5432"
+        POSTGRES_CONN_MAX_AGE = 300
+
+    [development.elasticsearch]
+        ELASTICSEARCH_HOST = "localhost"
+        ELASTICSEARCH_PORT = "9200"
+
+
+[production]
+    Debug = true
+    jwt_access_expire_time = 5
+    jwt_refresh_expire_time = 30
+
+    [production.database]
+        POSTGRES_HOST = "postgres_db"
+        POSTGRES_PORT = "5432"
+        POSTGRES_CONN_MAX_AGE = 300
+
+    [production.elasticsearch]
+        ELASTICSEARCH_HOST = "octoxlabs01"
+        ELASTICSEARCH_PORT = "9200"
